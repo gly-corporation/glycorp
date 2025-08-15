@@ -1,0 +1,269 @@
+body {
+  margin: 0;
+  background: linear-gradient(to bottom, #ffffff, #cfd3d8);
+  padding-top: 120px;
+  font-family: "Arial", sans-serif;
+  color: #333;
+}
+
+header {
+  background-color: #4c4c4c;
+  color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  flex-wrap: wrap;
+}
+
+.header-content img {
+  height: 60px;
+}
+
+.header-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  flex: 1;
+}
+
+nav {
+  background-color: #0b56a6;
+}
+
+.menu {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  margin: 0 20px;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 15px 20px;
+  display: block;
+}
+
+.menu a:hover {
+  background-color: #09448c;
+  border-radius: 5px;
+}
+
+h2 {
+  color: #0b56a6;
+  padding: 10px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+main {
+  padding: 30px;
+  padding-bottom: 80px;
+}
+
+section {
+  width: 100%;
+  max-width: 1200px; /* Define um limite máximo para evitar que o conteúdo fique muito largo em telas grandes */
+  margin: 0 auto; /* Centraliza a section na tela */
+  height: auto; /* Deixa a aultura automatico */
+  padding: 30px 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#imagem {
+  background-image: url("../imagens/sala-reuniao.png");
+  background-size: cover; /* Mostra a imagem inteira sem cortes */
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 60vh; /* Ajusta automatico da tela */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#imagem img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Mantém a proporção sem distorcer */
+  border-radius: 10px;
+}
+
+section a {
+  color: #0b56a6;
+  text-decoration: underline;
+}
+
+section a:hover {
+  color: #09448c;
+}
+
+.icone-container {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espaço entre os elementos */
+  flex-wrap: nowrap; /* Impede a quebra de linha */
+  white-space: nowrap; /* Evita que o texto quebre para a próxima linha */
+  padding-bottom: 10px;
+}
+
+.icone-container > a {
+  text-decoration: none;
+}
+
+.icone-container > a:hover {
+  text-decoration: underline;
+}
+
+.icone-container img {
+  width: 24px; /* Tamanho um pouco maior para melhor visualização */
+  height: 24px;
+  margin-left: 5px; /* Pequeno espaçamento entre o texto e o ícone */
+  vertical-align: middle; /* Alinha verticalmente com o texto */
+}
+#quem-somos {
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(to bottom, #4c4c4c, #0b56a6);
+  border-radius: 20px;
+  color: white;
+}
+
+#quem-somos h2 {
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.ceos {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.ceo {
+  text-align: center;
+}
+
+.ceo img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 3px solid #0b56a6;
+}
+
+.ceo h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.ceo p {
+  font-size: 1em;
+  color: #e0e0e0;
+}
+
+footer {
+  background-color: #0b56a6; /* Azul da logo */
+  color: #fff;
+  text-align: center;
+  padding: 1.5em 1em;
+  font-size: 1em;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+}
+
+footer p {
+  margin: 0;
+}
+
+footer a {
+  color: #fff; /* Cor para destacar o link */
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+footer a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 8px #000000;
+  text-decoration: underline;
+}
+
+/* Estilo do botão de menu mobile */
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 28px;
+  background: none;
+  color: white;
+  border: none;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header-title {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1em;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  .menu {
+    flex-direction: column;
+  }
+
+  .menu li {
+    margin: 10px 0;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  #imagem {
+    width: 95%; /* Usa mais espaço da tela sem perder alinhamento */
+    height: auto; /* Ajusta automaticamente a altura */
+  }
+
+  #imagem img {
+    width: 100%;
+    height: auto;
+    object-fit: contain; /* Evita cortes da imagem */
+  }
+}
