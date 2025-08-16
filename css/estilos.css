@@ -2,38 +2,60 @@ body {
   margin: 0;
   background: linear-gradient(to bottom, #ffffff, #cfd3d8);
   padding-top: 120px;
-  font-family: "Arial", sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: #333;
+  line-height: 1.6;
 }
 
 header {
-  background-color: #4c4c4c;
+  background: rgba(76, 76, 76, 0.9);
+  backdrop-filter: blur(6px);
   color: white;
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
   z-index: 999;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease;
 }
 
 .header-content {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 10px 20px;
-  flex-wrap: wrap;
+  justify-content: center;   /* centro real do container */
+  padding: 12px 30px;
+  min-height: 70px;
+  flex-wrap: nowrap;
+}
+
+.header-content .logo {
+  height: 60px;
+  width: auto;
+  display: block;
+  flex-shrink: 0;               /* nunca encolher a logo */
+  margin-right: 16px;
 }
 
 .header-content img {
+  position: absolute;
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
   height: 60px;
+  width: auto;
+  margin: 0;                 /* cancela margin-right */
+  flex-shrink: 0;
 }
 
 .header-title {
-  font-size: 1.2em;
-  font-weight: bold;
+  font-size: 1.3em;
+  font-weight: 600;
   text-align: center;
   flex: 1;
+  letter-spacing: 1px;
+  min-width: 200px; /* evita título muito estreito esmagar a logo */
 }
 
 nav {
@@ -56,13 +78,25 @@ nav {
   color: white;
   text-decoration: none;
   font-size: 18px;
-  padding: 15px 20px;
+  padding: 15px 0px;
   display: block;
+  position: relative;
+  transition: color 0.3s ease;
 }
 
-.menu a:hover {
-  background-color: #09448c;
-  border-radius: 5px;
+.menu a::after {
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #fff;
+  transition: width 0.3s ease;
+}
+
+.menu a:hover::after {
+  width: 100%;
 }
 
 h2 {
@@ -78,15 +112,22 @@ main {
 }
 
 section {
-  width: 100%;
   max-width: 1200px; /* Define um limite máximo para evitar que o conteúdo fique muito largo em telas grandes */
-  margin: 0 auto; /* Centraliza a section na tela */
-  height: auto; /* Deixa a aultura automatico */
-  padding: 30px 20px;
+  margin: 40px auto; /* Centraliza a section na tela */
+  padding: 40px 25px;
   background-color: #f9f9f9;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 #imagem {
@@ -120,26 +161,24 @@ section a:hover {
 .icone-container {
   display: flex;
   align-items: center;
-  gap: 8px; /* Espaço entre os elementos */
-  flex-wrap: nowrap; /* Impede a quebra de linha */
-  white-space: nowrap; /* Evita que o texto quebre para a próxima linha */
-  padding-bottom: 10px;
+  gap: 10px; /* Espaço entre os elementos */
+  padding: 10px 0;
+  transition: transform 0.3s ease;
 }
 
 .icone-container > a {
   text-decoration: none;
 }
 
-.icone-container > a:hover {
-  text-decoration: underline;
+.icone-container:hover {
+  transform: translateX(5px);
 }
 
 .icone-container img {
-  width: 24px; /* Tamanho um pouco maior para melhor visualização */
-  height: 24px;
-  margin-left: 5px; /* Pequeno espaçamento entre o texto e o ícone */
-  vertical-align: middle; /* Alinha verticalmente com o texto */
+  width: 26px; /* Tamanho um pouco maior para melhor visualização */
+  height: 26px;
 }
+
 #quem-somos {
   text-align: center;
   padding: 40px 20px;
@@ -165,12 +204,17 @@ section a:hover {
 }
 
 .ceo img {
-  width: 150px;
-  height: 150px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 10px;
   border: 3px solid #0b56a6;
+  transition: transform 0.3 ease, box-shadow 0.3s ease;
+}
+
+.ceo img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(11, 86, 166, 0.6);
 }
 
 .ceo h3 {
@@ -267,3 +311,5 @@ footer a:hover {
     object-fit: contain; /* Evita cortes da imagem */
   }
 }
+
+
